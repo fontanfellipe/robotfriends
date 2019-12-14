@@ -7,7 +7,7 @@ const Scroll = (props) => {
     return (
         <div style={{overflowY: 'scroll',
                      overflowX: 'hidden', 
-                    
+                     maxHeight:'800px'
                     }}>
             {props.children}      
         </div>

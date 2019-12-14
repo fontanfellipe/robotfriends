@@ -5,6 +5,7 @@ import SearchBar from '../Components/SearchBar'
 import { Row} from 'antd';
 import { robots } from '../Components/robotsObj';
 import Scroll from '../Components/Scroll';
+import ErrorBoundary from './ErrorBoundary';
 
 const {Header, Content, Footer} = Layout;
 
@@ -42,13 +43,16 @@ class Leiaoute extends React.Component {
                         background: "linear-gradient(90deg, rgba(128,180,158,1) 1%, rgba(88,190,188,1) 29%)"}}>
                         <SearchBar onSearchChange={this.onSearchChange}  />
                     </Header>
-                    <Scroll>
-                        <Content>
-                            <Row type="flex" justify="center" gutter={16, 48}>
-                                <Robotlist robots={filteredRobots} />
-                            </Row>
-                        </Content>
-                    </Scroll>
+                    <ErrorBoundary>
+                        <Scroll>
+                            <Content>
+                                <Row type="flex" justify="center" gutter={16, 48}>
+                                    <Robotlist robots={filteredRobots} />
+                                </Row>
+                            </Content>
+                        </Scroll>
+                    </ErrorBoundary>
+                 
                     <Footer></Footer>
                 </Layout>
             )
